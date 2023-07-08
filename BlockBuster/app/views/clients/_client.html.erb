@@ -1,0 +1,20 @@
+<div class="card" id="<%= dom_id client %>">
+  <tr>
+    <th scope="row" >
+      <%= client.id  %>
+    </th>
+    <td><%= client.name %></td>
+    <td><%= client.age %></td>
+    <td>
+      <% if client.movies.any? %>
+        <!-- modifique title por name -->
+        <%= client.movies.last.name %>
+      <% else %>
+        N/A
+      <% end %>
+    </td>
+    <td><%= link_to "Show this client", client ,class: "btn btn-primary mb-2 p-2 text-warning" %></td>
+    <td><%= link_to "Edit this client", edit_client_path(client) ,class: "btn btn-primary mb-2 p-2 text-warning" %></td>
+    <td><%= button_to "Destroy this client", @client, method: :delete ,class: "btn btn-primary mb-2 p-2 text-warning" %></td>
+  </tr>
+</div>
